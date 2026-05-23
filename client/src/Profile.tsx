@@ -17,6 +17,11 @@ type ProfileType = {
     years: string;
     bullets: string[];
   }>;
+  projects?: Array<{
+    name: string;
+    years: string;
+    description: string;
+  }>;
   education: Array<{ school: string; degree: string; year: string }>;
   contact: {
     email: string;
@@ -254,6 +259,23 @@ export default function Profile() {
                 ))}
               </ul>
             </section>
+
+            {data.projects && data.projects.length > 0 && (
+              <section className="segment">
+                <h3>Projects</h3>
+                {data.projects.map((p, idx) => (
+                  <div key={`${p.name}-${idx}`} className="project-item">
+                    <div className="project-header">
+                      <div className="project-name">{p.name}</div>
+                      <div className="project-years">{p.years}</div>
+                    </div>
+                    <ul className="project-bullets">
+                      <li>{p.description}</li>
+                    </ul>
+                  </div>
+                ))}
+              </section>
+            )}
 
             <section className="segment">
               <h3>Education</h3>

@@ -65,28 +65,28 @@ export const profile = {
     ],
     projects: [
         {
-            name: "Mobile Banker (mBanker - 12.0)",
+            name: "Mobile Banker (mBanker - 14.x)",
             years: "2019 - Present",
             description:
-                "Provides associates access to sales and servicing features across and beyond the branch/store, integrating essential banking functionalities to improve efficiency and customer experience."
+                "It empowers associates with seamless access to sales and servicing capabilities across and beyond the branch or store, unifying essential banking functions to enhance operational efficiency and deliver a more consistent, customer‑centric experience."
         },
         {
-            name: "Banker AO (BAO-12.0)",
+            name: "Banker AO (BAO-14.x)",
             years: "2019 - Present",
             description:
-                "Banker Account Opening supports creating personal and business accounts with services such as card issuance, check orders, combined statements, and promotion codes."
+                "Banker Account Opening enables the creation of a wide range of personal and business accounts, supporting services such as debit and credit card issuance, check orders, combined statements for existing customers, and the application of promotional codes all within a streamlined, customer-focused workflow."
         },
         {
             name: "Online Account Opening (OAO)",
             years: "2017 - 2018",
             description:
-                "Online Account Opening provides a streamlined way to set up and manage new accounts with a simplified digital flow."
+                "Online Account Opening provides a fast, convenient way to open and manage new accounts, giving customers greater control over their finances through a simple, intuitive digital experience."
         },
         {
             name: "Consumer Banking (dBanking)",
             years: "2016 - 2017",
             description:
-                "Digital Banking product delivering core online banking services through mobile devices as an alternative channel for consumers."
+                "Digital Banking delivers core online banking services through mobile devices, providing consumers with a convenient, secure, and fully digital alternative channel for managing their financial needs."
         }
     ],
     education: [
