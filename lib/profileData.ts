@@ -6,13 +6,16 @@ export const profileData = {
     summary:
         "Senior Software Engineer with 12+ years of experience designing and delivering high-quality UI, mobile, and Java backend solutions. Ten years focused in banking and financial services, building and shipping products such as mBanker, Banker AO, and Online Account Opening. Proficient with modern front-end frameworks (Angular, React, React Native, Flutter), TypeScript, Java (Spring Boot), Azure cloud, and both SQL and NoSQL datastores. Strong background in secure coding and vulnerability scanning (Checkmarx/CXOne), Agile delivery, CI/CD, and cross-functional leadership to translate product requirements into reliable, compliant releases.",
     summaryPoints: [
-        "12+ years building user-facing web, mobile applications and backend services",
-        "10 years of banking/product development experience Banker Sales & Services, Banker Account Opening, Online Account Opening, Consumer Banking, Online Agreement and Online Enrollment",
-        "Expert in Angular, React, React Native, Flutter, TypeScript and Java (Spring Boot)",
-        "Practical security experience with Checkmarx/CXOne, secure coding and regulatory compliance",
-        "Proven delivery skills: Agile, CI/CD pipelines, cross-functional leadership and production support",
-        "Productive use of GitHub Copilot to accelerate development, generate tests, and improve code quality",
-        "Proficient with prompt engineering and designing effective prompts for LLMs to automate tasks and generate code"
+        "Senior Software Engineer with 12+ years of experience delivering scalable, secure, and customer‑centric digital banking solutions across the US and India.",
+        "Proven international experience, including contributions to FIS Management LLC (USA) since 2023.",
+        "Extensive tenure with Fidelity Information Services India Pvt. Ltd. since 2016, driving major banking technology initiatives.",
+        "10 years of deep banking and product development expertise across Banker Sales & Services, Banker Account Opening, Online Account Opening, Consumer Banking, Online Agreement, and Online Enrollment.",
+        "Technical expertise in Angular, Java, microservices, and enterprise‑grade application development, with a strong focus on performance and maintainability.",
+        "Hands‑on security experience with Checkmarx/CXOne, secure coding practices, and regulatory compliance for financial applications.",
+        "Strong delivery and leadership capabilities, including Agile execution, CI/CD pipelines, cross‑functional collaboration, and production support.",
+        "Advanced use of GitHub Copilot to accelerate development, generate test coverage, and improve code quality.",
+        "Proficient in prompt engineering, designing effective prompts to automate workflows and generate high‑quality code using LLMs.",
+        "Deep domain expertise in digital banking, compliance, and global team collaboration, ensuring alignment across business, technology, and regulatory requirements."
     ],
     skills: [
         "Angular v20",
@@ -40,12 +43,13 @@ export const profileData = {
             location:
                 "2nd, 3rd & 6th Floor, Tower 3, Warp Building, SJR I Park, EPIP-Zone1, Whitefield Road, Bengaluru, Karnataka",
             bullets: [
-                "Perform security scans using CXOne and Checkmarx, providing fixes and mitigation strategies to ensure compliance.",
-                "Maintain compliance with FIS security policies and web standards, implementing secure coding practices and regulatory guidelines.",
-                "Assess technical feasibility for digital LFI Banker S&S/Banker AO requirements and ensure seamless integration.",
-                "Identify technical risks early, analyze impact, and propose contingency plans to mitigate disruptions.",
-                "Collaborate with Technical Leads and Project Managers to define profile/module configurations and optimize implementation strategies.",
-                "Participate in Epic and Story grooming, structure development tasks, refine schedules, and prioritize deliverables."
+                "Perform comprehensive security scans using CXOne and Checkmarx, delivering timely fixes and mitigation strategies to maintain full compliance.",
+                "Ensure adherence to FIS security policies, web standards, and regulatory guidelines through secure coding practices and continuous validation.",
+                "Assess technical feasibility for LFI Banker Sales & Services and Banker Account Opening requirements, ensuring seamless integration across systems.",
+                "Identify technical risks early, evaluate their impact, and drive proactive contingency planning to prevent delivery disruptions.",
+                "Collaborate closely with Technical Leads and Project Managers to define profile/module configurations and optimize implementation strategies.",
+                "Participate in Epic and Story grooming, structuring development tasks, refining schedules, and prioritizing high‑value deliverables.",
+                "Lead cross‑team technical discussions and provide guidance to ensure architectural alignment, code quality, and consistent engineering best practices."
             ],
             contactPerson: { name: "Lauren Miller", title: "Senior Software Engineer" }
         },
@@ -55,11 +59,12 @@ export const profileData = {
             years: "11/2013 - 07/2016",
             location: "Raghuma Towers, Hitech City Main Road, Hyderabad, Telangana",
             bullets: [
-                "Implemented Agile software development methodologies for iterative progress and continuous integration.",
-                "Engineered new functionalities within website architecture constraints and optimized system configurations.",
-                "Diagnosed and resolved defects through detailed debugging and collaborated with QA to validate fixes.",
-                "Participated in High-Level Requirements meetings, translating technical specifications into development tasks.",
-                "Conducted root cause analysis on client-reported issues and implemented effective solutions."
+                "Apply Agile development practices to drive iterative enhancements, maintain development velocity, and ensure continuous integration across modules.",
+                "Build and extend application features while working within architectural boundaries, optimizing configurations for stability and performance.",
+                "Troubleshoot complex issues through systematic debugging and partner with QA teams to validate resolutions and maintain release integrity.",
+                "Participate in High‑Level Requirements sessions, breaking down technical specifications into actionable engineering tasks.",
+                "Perform root cause analysis on client‑reported issues and implement durable fixes that prevent recurrence.",
+                "Streamline development workflows by improving build processes, refining code branching strategies, and reducing friction in day‑to‑day engineering operations."
             ],
             contactPerson: { name: "Kishore P" }
         }
