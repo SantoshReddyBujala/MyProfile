@@ -2,6 +2,7 @@ export const profileData = {
     name: "Santosh Bujala",
     title: "Senior Software Engineer",
     location: "GA, USA",
+    profileImage: "/profile.png",
     shortSummary: "Full-stack software engineer 12+ years building web, mobile and backend systems",
     summary:
         "Senior Software Engineer with 12+ years of experience designing and delivering high-quality UI, mobile, and Java backend solutions. Ten years focused in banking and financial services, building and shipping products such as mBanker, Banker AO, and Online Account Opening. Proficient with modern front-end frameworks (Angular, React, React Native, Flutter), TypeScript, Java (Spring Boot), Azure cloud, and both SQL and NoSQL datastores. Strong background in secure coding and vulnerability scanning (Checkmarx/CXOne), Agile delivery, CI/CD, and cross-functional leadership to translate product requirements into reliable, compliant releases.",

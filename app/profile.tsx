@@ -8,6 +8,7 @@ type ProfileType = {
   name: string;
   title: string;
   location: string;
+  profileImage?: string;
   summary: string;
   summaryPoints?: string[];
   shortSummary?: string;
@@ -166,13 +167,17 @@ export default function ProfilePage() {
 
           <div className="banner-center">
             <div className="banner-photo">
-              <div className="photo-initials">
-                {data.name
-                  .split(" ")
-                  .map((n) => n[0])
-                  .slice(0, 2)
-                  .join("")}
-              </div>
+              {data.profileImage ? (
+                <img src={data.profileImage} alt={data.name} />
+              ) : (
+                <div className="photo-initials">
+                  {data.name
+                    .split(" ")
+                    .map((n) => n[0])
+                    .slice(0, 2)
+                    .join("")}
+                </div>
+              )}
             </div>
           </div>
 
