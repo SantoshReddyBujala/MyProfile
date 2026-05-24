@@ -24,6 +24,7 @@ type ProfileType = {
     description: string;
   }>;
   education: Array<{ school: string; degree: string; year: string }>;
+  educationSummary?: string;
   contact: {
     email: string;
     phone: string;
@@ -50,107 +51,96 @@ export default function ProfilePage() {
   }, []);
 
   async function downloadPDF() {
-    const el = document.getElementById("profile");
-    if (!el) return;
-
-    const originalBg = el.style.background;
-    const originalBodyBg = document.body.style.background;
-    const appEl = document.querySelector(".app") as HTMLElement | null;
-    const originalAppBg = appEl ? appEl.style.background : "";
-
-    document.body.style.background = "#ffffff";
-    if (appEl) appEl.style.background = "#ffffff";
-    el.style.background = "#ffffff";
-
-    const scaleFactor = Math.max(2, (window.devicePixelRatio || 1) * 2);
-    const canvas = await html2canvas(el, {
-      scale: scaleFactor,
-      useCORS: true,
-      backgroundColor: "#ffffff",
-    });
-
-    const imgData = canvas.toDataURL("image/png");
-    const pdf = new jsPDF({
-      unit: "mm",
-      format: "a4",
-      orientation: "portrait",
-    });
-
-    const pageWidth = pdf.internal.pageSize.getWidth();
-    const pageHeight = pdf.internal.pageSize.getHeight();
-    const pageGap = 10;
-    const printablePageHeight = Math.max(0, pageHeight - pageGap);
-
-    const imgProps = (pdf as any).getImageProperties(imgData);
-    const imgWidth = pageWidth;
-    const imgHeight = (imgProps.height * imgWidth) / imgProps.width;
-
-    if (imgHeight <= pageHeight) {
-      pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
-    } else {
-      const ratio = canvas.width / imgWidth;
-      const sliceHeightPx = Math.round(printablePageHeight * ratio);
-      const overlap = Math.round(40 * (scaleFactor / 2));
-
-      const headingEls = Array.from(
-        el.querySelectorAll("h1, h2, h3, h4, h5, h6"),
-      ) as HTMLElement[];
-      const headingTopsPx = headingEls.map((h) =>
-        Math.round(h.offsetTop * scaleFactor),
-      );
-
-      let y = 0;
-      while (y < canvas.height) {
-        const slice = document.createElement("canvas");
-        slice.width = canvas.width;
-
-        let srcY = Math.max(0, y - overlap);
-        const remainingFromSrc = canvas.height - srcY;
-        let sH = Math.min(sliceHeightPx, remainingFromSrc);
-
-        const sliceBottom = y + sH;
-        const nearBottomThreshold = Math.round(80 * scaleFactor);
-        const headingToMove = headingTopsPx.find(
-          (ht) =>
-            ht > y + Math.round(10 * scaleFactor) &&
-            ht >= sliceBottom - nearBottomThreshold &&
-            ht < sliceBottom,
-        );
-
-        if (headingToMove) {
-          sH = Math.max(0, headingToMove - y - overlap);
-          srcY = Math.max(0, y - overlap);
-        }
-
-        slice.height = sH;
-        const ctx = slice.getContext("2d")!;
-        ctx.imageSmoothingEnabled = true;
-        ctx.imageSmoothingQuality = "high" as any;
-        ctx.drawImage(
-          canvas,
-          0,
-          srcY,
-          canvas.width,
-          sH,
-          0,
-          0,
-          canvas.width,
-          sH,
-        );
-
-        const pageData = slice.toDataURL("image/png");
-        const destHeight = sH / ratio;
-        pdf.addImage(pageData, "PNG", 0, 0, imgWidth, destHeight);
-        y += sH || sliceHeightPx;
-        if (y < canvas.height) pdf.addPage();
+    try {
+      const el = document.getElementById("profile");
+      if (!el) {
+        alert("Profile element not found");
+        return;
       }
+
+      const originalBg = el.style.background;
+      const originalBodyBg = document.body.style.background;
+      const appEl = document.querySelector(".app") as HTMLElement | null;
+      const originalAppBg = appEl ? appEl.style.background : "";
+
+      document.body.style.background = "#ffffff";
+      if (appEl) appEl.style.background = "#ffffff";
+      el.style.background = "#ffffff";
+
+      const canvas = await html2canvas(el, {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: "#ffffff",
+        allowTaint: true,
+        logging: false,
+      });
+
+      const imgData = canvas.toDataURL("image/png", 1.0);
+      const pdf = new jsPDF({
+        unit: "mm",
+        format: "a4",
+        orientation: "portrait",
+      });
+
+      const pageWidth = pdf.internal.pageSize.getWidth();
+      const pageHeight = pdf.internal.pageSize.getHeight();
+
+      const imgProps = (pdf as any).getImageProperties(imgData);
+      const imgWidth = pageWidth - 10;
+      const imgHeight = (imgProps.height * imgWidth) / imgProps.width;
+
+      if (imgHeight <= pageHeight - 10) {
+        pdf.addImage(imgData, "PNG", 5, 5, imgWidth, imgHeight);
+      } else {
+        const ratio = canvas.width / imgWidth;
+        const maxHeightPx = Math.round((pageHeight - 10) * ratio);
+
+        let yPos = 0;
+        let isFirstPage = true;
+
+        while (yPos < canvas.height) {
+          if (!isFirstPage) {
+            pdf.addPage();
+          }
+
+          const sliceHeight = Math.min(maxHeightPx, canvas.height - yPos);
+          const sliceCanvas = document.createElement("canvas");
+          sliceCanvas.width = canvas.width;
+          sliceCanvas.height = sliceHeight;
+
+          const ctx = sliceCanvas.getContext("2d");
+          if (ctx) {
+            ctx.drawImage(
+              canvas,
+              0,
+              yPos,
+              canvas.width,
+              sliceHeight,
+              0,
+              0,
+              canvas.width,
+              sliceHeight,
+            );
+          }
+
+          const sliceImgData = sliceCanvas.toDataURL("image/png", 1.0);
+          const sliceHeight_mm = sliceHeight / ratio;
+          pdf.addImage(sliceImgData, "PNG", 5, 5, imgWidth, sliceHeight_mm);
+
+          yPos += sliceHeight;
+          isFirstPage = false;
+        }
+      }
+
+      pdf.save("profile.pdf");
+
+      el.style.background = originalBg;
+      document.body.style.background = originalBodyBg;
+      if (appEl) appEl.style.background = originalAppBg;
+    } catch (error) {
+      console.error("Error generating PDF:", error);
+      alert("Failed to generate PDF. Please try again.");
     }
-
-    pdf.save("profile.pdf");
-
-    el.style.background = originalBg;
-    document.body.style.background = originalBodyBg;
-    if (appEl) appEl.style.background = originalAppBg;
   }
 
   if (loading) return <div className="loading">Loading profile…</div>;
@@ -279,17 +269,13 @@ export default function ProfilePage() {
                 ))}
               </section>
             )}
-
-            <section className="segment">
-              <h3>Education</h3>
-              {data.education.map((e, idx) => (
-                <div key={`${e.school}-${idx}`} className="edu-item">
-                  {e.degree} - {e.year}, {e.school}
-                </div>
-              ))}
-            </section>
           </aside>
         </div>
+
+        <section className="segment">
+          <h3>Education</h3>
+          <div className="edu-summary">{data.educationSummary}</div>
+        </section>
       </div>
     </div>
   );

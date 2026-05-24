@@ -183,16 +183,17 @@ body {
 
 .segment {
   background: var(--card);
-  padding: 5px 18px;
+  padding: 3px 18px;
   border-radius: 0 0 8px 8px;
   box-shadow: 0 1px 4px rgba(2, 6, 23, 0.06);
+  margin-bottom: 2px;
 }
 
 .segment h2,
 .segment h3 {
   color: #0b3b44;
   font-weight: 700;
-  margin: 16px 0 12px 0;
+  margin: 4px 0 4px 0;
   font-size: 18px;
 }
 

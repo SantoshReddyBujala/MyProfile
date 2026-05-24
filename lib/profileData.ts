@@ -14,8 +14,7 @@ export const profileData = {
         "Hands‑on security experience with Checkmarx/CXOne, secure coding practices, and regulatory compliance for financial applications.",
         "Strong delivery and leadership capabilities, including Agile execution, CI/CD pipelines, cross‑functional collaboration, and production support.",
         "Advanced use of GitHub Copilot to accelerate development, generate test coverage, and improve code quality.",
-        "Proficient in prompt engineering, designing effective prompts to automate workflows and generate high‑quality code using LLMs.",
-        "Deep domain expertise in digital banking, compliance, and global team collaboration, ensuring alignment across business, technology, and regulatory requirements."
+        "Proficient in prompt engineering, designing effective prompts to automate workflows and generate high‑quality code using LLMs."
     ],
     skills: [
         "Angular v20",
@@ -49,7 +48,6 @@ export const profileData = {
                 "Identify technical risks early, evaluate their impact, and drive proactive contingency planning to prevent delivery disruptions.",
                 "Collaborate closely with Technical Leads and Project Managers to define profile/module configurations and optimize implementation strategies.",
                 "Participate in Epic and Story grooming, structuring development tasks, refining schedules, and prioritizing high‑value deliverables.",
-                "Lead cross‑team technical discussions and provide guidance to ensure architectural alignment, code quality, and consistent engineering best practices."
             ],
             contactPerson: { name: "Lauren Miller", title: "Senior Software Engineer" }
         },
@@ -63,8 +61,7 @@ export const profileData = {
                 "Build and extend application features while working within architectural boundaries, optimizing configurations for stability and performance.",
                 "Troubleshoot complex issues through systematic debugging and partner with QA teams to validate resolutions and maintain release integrity.",
                 "Participate in High‑Level Requirements sessions, breaking down technical specifications into actionable engineering tasks.",
-                "Perform root cause analysis on client‑reported issues and implement durable fixes that prevent recurrence.",
-                "Streamline development workflows by improving build processes, refining code branching strategies, and reducing friction in day‑to‑day engineering operations."
+                "Perform root cause analysis on client‑reported issues and implement durable fixes that prevent recurrence."
             ],
             contactPerson: { name: "Kishore P" }
         }
@@ -107,6 +104,7 @@ export const profileData = {
             year: "06/2005 - 07/2008",
         }
     ],
+    educationSummary: "Master of Computer Application (06/2008 - 08/2011), Jawaharlal Nehru Technological University, Hyderabad | Bachelor of Science (06/2005 - 07/2008), Osmania University, Kalwakurthy, Nagarkurnool, Telangana",
     contact: {
         email: "bujalasanthoshreddy@gmail.com",
         phone: "4707969789",
